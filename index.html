@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#100b1f" />
   <meta name="description" content="Ajay Sharma — Computer Science student and aspiring software developer. Explore my skills, projects, and contact details." />
-  <title>Ajay Sharma | Developer Portfolio </title>
+  <title>Ajay Sharma | Developer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -67,7 +67,18 @@
     .file-name { margin-left: auto; }
     pre { padding: 24px 22px 27px; font: 500 .89rem/1.9 ui-monospace, SFMono-Regular, Menlo, monospace; color: #d8d0e8; white-space: pre-wrap; }
     .code-purple { color: #c4b5fd; } .code-pink { color: #f0abfc; } .code-green { color: #a7f3d0; } .code-muted { color: #847995; }
-    .float-tag { position: absolute; border: 1px solid var(--line); background: rgba(28,20,47,.9); padding: 10px 13px; border-radius: 13px; box-shadow: 0 12px 30px rgba(0,0,0,.2); font-size: .84rem; }
+
+    .portrait-stage { position: relative; width: min(100%, 430px); min-height: 570px; display: flex; align-items: center; justify-content: center; isolation: isolate; }
+    .portrait-glow { position: absolute; inset: 8% 2% 4% 8%; border-radius: 48% 48% 24px 24px; background: linear-gradient(145deg, rgba(167,139,250,.38), rgba(240,171,252,.12)); filter: blur(1px); z-index: -2; }
+    .portrait-ring { position: absolute; width: 105%; height: 88%; border: 1px solid rgba(216,180,254,.36); border-radius: 48% 48% 28px 28px; transform: rotate(5deg); z-index: -1; }
+    .portrait-frame { position: relative; width: 88%; height: 560px; border-radius: 190px 190px 24px 24px; overflow: hidden; border: 1px solid rgba(255,255,255,.24); background: #211735; box-shadow: 0 25px 80px rgba(0,0,0,.38), 0 0 55px rgba(167,139,250,.18); }
+    .portrait-frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .portrait-frame::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(16,11,31,.42)); pointer-events: none; }
+    .portrait-caption { position: absolute; bottom: 27px; left: 8%; right: 8%; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .portrait-caption span { font-size: .78rem; color: #f3e8ff; border: 1px solid rgba(255,255,255,.25); background: rgba(16,11,31,.55); backdrop-filter: blur(10px); padding: 8px 11px; border-radius: 999px; }
+    .portrait-badge { position: absolute; top: 14%; right: -1%; border: 1px solid rgba(255,255,255,.18); background: rgba(28,20,47,.94); padding: 12px 15px; border-radius: 14px; box-shadow: 0 12px 35px rgba(0,0,0,.24); font-size: .84rem; }
+    .portrait-badge.bottom { top: auto; right: auto; bottom: 14%; left: -2%; }
+\n    .float-tag { position: absolute; border: 1px solid var(--line); background: rgba(28,20,47,.9); padding: 10px 13px; border-radius: 13px; box-shadow: 0 12px 30px rgba(0,0,0,.2); font-size: .84rem; }
     .tag-one { top: 12%; right: -2%; } .tag-two { bottom: 10%; left: -5%; }
     section { padding-block: 88px; }
     .section-head { max-width: 650px; margin-bottom: 38px; }
@@ -117,7 +128,7 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 70px; }
-      .hero-visual { min-height: 360px; }
+      .hero-visual { min-height: 590px; }\n      .portrait-stage { min-height: 570px; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .projects-grid { grid-template-columns: repeat(2, 1fr); }
       .tag-one { right: 6%; } .tag-two { left: 5%; }
@@ -132,7 +143,7 @@
       .hero { min-height: auto; padding-block: 62px 55px; }
       h1 { font-size: clamp(2.75rem, 13vw, 4rem); }
       .hero-copy { font-size: 1rem; }
-      .hero-visual { min-height: 320px; }
+      .hero-visual { min-height: 490px; }\n      .portrait-stage { min-height: 480px; }\n      .portrait-frame { height: 465px; width: 84%; }\n      .portrait-badge { right: -1%; top: 12%; }\n      .portrait-badge.bottom { left: -1%; bottom: 12%; }
       .orb { width: 240px; height: 240px; }
       .code-card { width: min(100%, 350px); }
       pre { font-size: .78rem; padding: 18px; }
@@ -147,12 +158,11 @@
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
   </style>
-  <meta name="google-site-verification" content="YOUR_CODE" />
 </head>
 <body>
   <div class="nav-wrap">
     <nav class="container" aria-label="Main navigation">
-      <a class="logo" href="#home">Ajay Sharma<span>.</span></a>
+      <a class="logo" href="#home">ajay<span>.</span></a>
       <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a>
@@ -172,30 +182,25 @@
           <a class="btn btn-secondary" href="#contact">Get in touch <span>↗</span></a>
         </div>
         <div class="socials">
-          <a href="https://github.com/ajaydev-6666" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/ajay-sharma-33957a289/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="mailto:rs5314627@gmail.com">Email ↗</a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="mailto:your.email@example.com">Email ↗</a>
         </div>
       </div>
-      <div class="hero-visual" aria-label="Decorative code editor illustration">
-        <div class="orb"></div>
-        <div class="code-card">
-          <div class="code-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="file-name">developer.java</span></div>
-          <pre><span class="code-muted">// a little about me</span>
-<span class="code-purple">class</span> <span class="code-pink">Developer</span> {
-  <span class="code-purple">String</span> name = <span class="code-green">"Ajay"</span>;
-  <span class="code-purple">String</span> focus = <span class="code-green">"Full Stack"</span>;
-  <span class="code-purple">String</span> mindset = <span class="code-green">"Always learning"</span>;
-
-  <span class="code-purple">void</span> build() {
-    learn();
-    create();
-    <span class="code-pink">repeat</span>();
-  }
-}</pre>
+      <div class="hero-visual" aria-label="Ajay standing in a formal suit">
+        <div class="portrait-stage">
+          <div class="portrait-glow"></div>
+          <div class="portrait-ring"></div>
+          <div class="portrait-frame">
+            <img src="ajay-photo.png" alt="Ajay Sharma standing in a black formal suit" />
+            <div class="portrait-caption">
+              <span>AJAY SHARMA</span>
+              <span>Developer in progress ✦</span>
+            </div>
+          </div>
+          <div class="portrait-badge">✦ Java & Web Dev</div>
+          <div class="portrait-badge bottom">⌘ Building with curiosity</div>
         </div>
-        <div class="float-tag tag-one">✦ Java & Web Dev</div>
-        <div class="float-tag tag-two">⌘ Building with curiosity</div>
       </div>
     </section>
 
@@ -248,7 +253,7 @@
             <div class="project-top"><div class="project-symbol">◎</div><span class="project-type">AI / Security</span></div>
             <h3>ScanShield AI</h3><p>A project exploring suspicious URL analysis and scam detection with an AI-assisted workflow.</p>
             <div class="chips"><span class="chip">Python</span><span class="chip">ML</span><span class="chip">URL Analysis</span></div>
-            <div class="project-links"><a href="https://github.com/ajaydev-6666" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            <div class="project-links"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div>
           </article>
           <article class="project-card reveal">
             <div class="project-top"><div class="project-symbol">▦</div><span class="project-type">Web App</span></div>
@@ -283,11 +288,9 @@
           <h2>Let’s build something <span class="gradient-text">useful.</span></h2>
           <p>I’m open to connecting with developers, collaborating on student projects, and learning about opportunities.</p>
           <div class="contact-links">
-           
-<a class="btn btn-primary" href="mailto:rs5314627@gmail.com">✉ Email me</a>
-
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ajay-sharma-33957a289/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <button class="btn btn-secondary" id="rs5314627@gmail.com">Copy email</button>
+            <a class="btn btn-primary" href="mailto:your.email@example.com">✉ Email me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <button class="btn btn-secondary" id="copyEmail">Copy email</button>
           </div>
           <p id="copyStatus" aria-live="polite" style="min-height:1.5em;margin-bottom:0;"></p>
         </div>
