@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100b1f" />
+  <meta name="description" content="Ajay Sharma — Computer Science student and aspiring software developer. Explore my skills, projects, and contact details." />
+  <title>Ajay Sharma | Developer Portfolio </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #100b1f;
+      --panel: rgba(255,255,255,.055);
+      --panel-hover: rgba(255,255,255,.085);
+      --text: #f8f5ff;
+      --muted: #b7adc9;
+      --purple: #a78bfa;
+      --pink: #f0abfc;
+      --line: rgba(255,255,255,.12);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      background:
+        radial-gradient(ellipse at 80% 5%, rgba(124,58,237,.20), transparent 34rem),
+        radial-gradient(ellipse at 5% 45%, rgba(192,38,211,.10), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 20; background: rgba(16,11,31,.78); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: -.06em; font-size: 1.35rem; }
+    .logo span { color: var(--purple); }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-cta { border: 1px solid rgba(167,139,250,.55); border-radius: 999px; padding: 9px 16px; color: var(--text); transition: .2s; }
+    .nav-cta:hover { background: rgba(167,139,250,.15); transform: translateY(-1px); }
+    .menu-btn { display: none; border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 10px; padding: 7px 11px; cursor: pointer; }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 58px; padding-block: 86px 92px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); background: rgba(255,255,255,.035); border-radius: 999px; padding: 7px 13px; color: #ded4f3; font-size: .84rem; margin-bottom: 24px; }
+    .pulse { width: 8px; height: 8px; background: #a7f3d0; border-radius: 50%; box-shadow: 0 0 0 5px rgba(167,243,208,.10); }
+    h1, h2, h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.12; letter-spacing: -.045em; }
+    h1 { font-size: clamp(3rem, 6vw, 5.35rem); max-width: 720px; }
+    .gradient-text { background: linear-gradient(100deg, #c4b5fd 8%, #e9a8f9 55%, #fbcfe8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { color: var(--muted); font-size: 1.08rem; max-width: 590px; margin-top: 24px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 12px; padding: 13px 18px; font-weight: 700; font-size: .94rem; border: 1px solid transparent; transition: transform .2s, background .2s; cursor: pointer; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { color: #1b102b; background: linear-gradient(115deg, #c4b5fd, #f0abfc); box-shadow: 0 10px 35px rgba(167,139,250,.18); }
+    .btn-secondary { border-color: var(--line); background: var(--panel); }
+    .socials { display: flex; gap: 18px; margin-top: 28px; color: var(--muted); font-size: .9rem; }
+    .socials a:hover { color: var(--pink); }
+    .hero-visual { position: relative; display: grid; place-items: center; min-height: 390px; }
+    .orb { position: absolute; width: 310px; height: 310px; border-radius: 50%; background: linear-gradient(140deg, rgba(139,92,246,.32), rgba(217,70,239,.10)); filter: blur(2px); border: 1px solid rgba(216,180,254,.25); box-shadow: inset 0 0 70px rgba(192,132,252,.12), 0 0 90px rgba(124,58,237,.13); }
+    .code-card { width: min(100%, 390px); position: relative; border: 1px solid rgba(255,255,255,.16); background: rgba(24,17,43,.82); border-radius: 20px; box-shadow: 0 25px 90px rgba(0,0,0,.30); transform: rotate(2deg); overflow: hidden; }
+    .code-top { display: flex; align-items: center; gap: 7px; padding: 15px 17px; border-bottom: 1px solid var(--line); color: #a99ebd; font-size: .8rem; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #fb7185; } .dot:nth-child(2) { background: #fbbf24; } .dot:nth-child(3) { background: #6ee7b7; }
+    .file-name { margin-left: auto; }
+    pre { padding: 24px 22px 27px; font: 500 .89rem/1.9 ui-monospace, SFMono-Regular, Menlo, monospace; color: #d8d0e8; white-space: pre-wrap; }
+    .code-purple { color: #c4b5fd; } .code-pink { color: #f0abfc; } .code-green { color: #a7f3d0; } .code-muted { color: #847995; }
+    .float-tag { position: absolute; border: 1px solid var(--line); background: rgba(28,20,47,.9); padding: 10px 13px; border-radius: 13px; box-shadow: 0 12px 30px rgba(0,0,0,.2); font-size: .84rem; }
+    .tag-one { top: 12%; right: -2%; } .tag-two { bottom: 10%; left: -5%; }
+    section { padding-block: 88px; }
+    .section-head { max-width: 650px; margin-bottom: 38px; }
+    .kicker { color: var(--pink); text-transform: uppercase; font-size: .76rem; font-weight: 700; letter-spacing: .18em; margin-bottom: 13px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
+    .section-desc { color: var(--muted); margin-top: 15px; max-width: 600px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .glass { border: 1px solid var(--line); background: var(--panel); border-radius: 20px; padding: 27px; }
+    .glass p { color: var(--muted); }
+    .about-card h3 { font-size: 1.3rem; margin-bottom: 13px; }
+    .quick-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+    .fact { background: rgba(255,255,255,.045); padding: 14px; border-radius: 13px; }
+    .fact strong { display: block; color: var(--text); font-size: 1.04rem; }
+    .fact span { color: var(--muted); font-size: .82rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .skill-card { border: 1px solid var(--line); background: var(--panel); padding: 21px; border-radius: 17px; transition: .25s; }
+    .skill-card:hover, .project-card:hover { background: var(--panel-hover); transform: translateY(-5px); border-color: rgba(196,181,253,.42); }
+    .skill-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(167,139,250,.13); color: #d8b4fe; font-weight: 700; margin-bottom: 15px; }
+    .skill-card h3 { font-size: 1.05rem; letter-spacing: -.02em; margin-bottom: 7px; }
+    .skill-card p { color: var(--muted); font-size: .88rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { display: flex; flex-direction: column; min-height: 310px; border: 1px solid var(--line); background: var(--panel); border-radius: 19px; padding: 24px; transition: .25s; }
+    .project-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .project-symbol { width: 49px; height: 49px; display: grid; place-items: center; border-radius: 15px; background: linear-gradient(145deg, rgba(167,139,250,.25), rgba(240,171,252,.10)); color: #e9d5ff; font-size: 1.2rem; }
+    .project-type { color: #c4b5fd; font-size: .77rem; border: 1px solid rgba(196,181,253,.24); border-radius: 999px; padding: 5px 9px; }
+    .project-card h3 { font-size: 1.35rem; margin-bottom: 10px; }
+    .project-card p { color: var(--muted); font-size: .92rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .chip { color: #d9cfee; background: rgba(255,255,255,.06); border-radius: 7px; padding: 4px 8px; font-size: .75rem; }
+    .project-links { margin-top: auto; padding-top: 22px; display: flex; gap: 16px; font-size: .87rem; font-weight: 700; }
+    .project-links a { color: #e9d5ff; } .project-links a:hover { color: var(--pink); }
+    .journey { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .journey-item { display: flex; gap: 15px; margin-top: 23px; }
+    .journey-mark { width: 11px; height: 11px; flex: 0 0 11px; border-radius: 50%; margin-top: 7px; background: var(--purple); box-shadow: 0 0 0 5px rgba(167,139,250,.12); }
+    .journey-item h3 { font-size: 1.08rem; letter-spacing: -.02em; margin-bottom: 5px; }
+    .journey-item p { color: var(--muted); font-size: .9rem; }
+    .contact-panel { position: relative; overflow: hidden; text-align: center; padding: 55px 25px; border: 1px solid rgba(196,181,253,.22); border-radius: 25px; background: linear-gradient(130deg, rgba(124,58,237,.18), rgba(217,70,239,.08)); }
+    .contact-panel::before { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: rgba(167,139,250,.12); filter: blur(65px); top: -130px; left: calc(50% - 130px); }
+    .contact-panel > * { position: relative; }
+    .contact-panel h2 { max-width: 650px; margin: 0 auto; }
+    .contact-panel p { color: var(--muted); max-width: 520px; margin: 17px auto 25px; }
+    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    footer { padding: 25px 0 35px; border-top: 1px solid rgba(255,255,255,.07); color: #9589aa; font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+    .back-top { color: #d8b4fe; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 70px; }
+      .hero-visual { min-height: 360px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .tag-one { right: 6%; } .tag-two { left: 5%; }
+    }
+    @media (max-width: 650px) {
+      .container { width: min(100% - 30px, var(--max)); }
+      nav { min-height: 68px; }
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 22px 22px; background: #171027; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 15px; }
+      .nav-links.open { display: flex; }
+      .nav-links .nav-cta { text-align: center; }
+      .hero { min-height: auto; padding-block: 62px 55px; }
+      h1 { font-size: clamp(2.75rem, 13vw, 4rem); }
+      .hero-copy { font-size: 1rem; }
+      .hero-visual { min-height: 320px; }
+      .orb { width: 240px; height: 240px; }
+      .code-card { width: min(100%, 350px); }
+      pre { font-size: .78rem; padding: 18px; }
+      .float-tag { font-size: .76rem; }
+      section { padding-block: 65px; }
+      .about-grid, .journey { grid-template-columns: 1fr; }
+      .skills-grid { gap: 11px; }
+      .skill-card { padding: 17px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 285px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home">Ajay Sharma<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a>
+        <a class="nav-cta" href="#contact">Let's talk ↗</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> Open to learning & opportunities</div>
+        <h1>Hi, I'm Ajay.<br>I build things for the <span class="gradient-text">web.</span></h1>
+        <p class="hero-copy">I'm a Computer Science student exploring software development, Java full-stack engineering, and AI-powered applications. I enjoy turning ideas into clean, useful digital experiences.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore my work <span>↘</span></a>
+          <a class="btn btn-secondary" href="#contact">Get in touch <span>↗</span></a>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/ajaydev-6666" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/ajay-sharma-33957a289/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="mailto:rs5314627@gmail.com">Email ↗</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Decorative code editor illustration">
+        <div class="orb"></div>
+        <div class="code-card">
+          <div class="code-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="file-name">developer.java</span></div>
+          <pre><span class="code-muted">// a little about me</span>
+<span class="code-purple">class</span> <span class="code-pink">Developer</span> {
+  <span class="code-purple">String</span> name = <span class="code-green">"Ajay"</span>;
+  <span class="code-purple">String</span> focus = <span class="code-green">"Full Stack"</span>;
+  <span class="code-purple">String</span> mindset = <span class="code-green">"Always learning"</span>;
+
+  <span class="code-purple">void</span> build() {
+    learn();
+    create();
+    <span class="code-pink">repeat</span>();
+  }
+}</pre>
+        </div>
+        <div class="float-tag tag-one">✦ Java & Web Dev</div>
+        <div class="float-tag tag-two">⌘ Building with curiosity</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">A little about me</div><h2>Curious mind.<br><span class="gradient-text">Builder mindset.</span></h2><p class="section-desc">I’m focused on building a strong foundation in programming and creating projects that solve everyday problems.</p></div>
+        <div class="about-grid">
+          <article class="glass about-card reveal">
+            <h3>Who I am</h3>
+            <p>I'm pursuing B.Tech in Computer Science & Engineering at Accurate Institute of Management and Technology. I like understanding how things work, learning by building, and improving a project one iteration at a time.</p>
+            <div class="quick-facts">
+              <div class="fact"><strong>B.Tech CSE</strong><span>Computer Science</span></div>
+              <div class="fact"><strong>Java + Web</strong><span>Current focus</span></div>
+              <div class="fact"><strong>Project-led</strong><span>Learning style</span></div>
+              <div class="fact"><strong>AI curious</strong><span>Exploring AI apps</span></div>
+            </div>
+          </article>
+          <article class="glass about-card reveal">
+            <h3>What I’m working toward</h3>
+            <p>My goal is to become a capable software engineer who can take an idea from interface to backend and database—with an eye on cloud deployment and practical AI features.</p>
+            <div class="journey-item"><span class="journey-mark"></span><div><h3>Build solid fundamentals</h3><p>Programming, OOP, DSA, and problem-solving.</p></div></div>
+            <div class="journey-item"><span class="journey-mark"></span><div><h3>Create end-to-end projects</h3><p>Responsive UI, REST APIs, databases, and deployment.</p></div></div>
+            <div class="journey-item"><span class="journey-mark"></span><div><h3>Keep shipping</h3><p>Learn from feedback and make each project better.</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">My toolkit</div><h2>Skills I’m <span class="gradient-text">growing.</span></h2><p class="section-desc">A mix of programming foundations and tools I’m learning through coursework and projects.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><div class="skill-icon">J</div><h3>Java</h3><p>OOP, collections, core concepts, Spring Boot learning path.</p></article>
+          <article class="skill-card reveal"><div class="skill-icon">C++</div><h3>C / C++</h3><p>Programming fundamentals and DSA practice.</p></article>
+          <article class="skill-card reveal"><div class="skill-icon">⌘</div><h3>HTML & CSS</h3><p>Responsive layouts, modern UI, and accessible structure.</p></article>
+          <article class="skill-card reveal"><div class="skill-icon">JS</div><h3>JavaScript</h3><p>Interactive interfaces and browser-side functionality.</p></article>
+          <article class="skill-card reveal"><div class="skill-icon">Py</div><h3>Python</h3><p>Scripting and exploring AI/ML workflows.</p></article>
+          <article class="skill-card reveal"><div class="skill-icon">DB</div><h3>SQL / MySQL</h3><p>Relational database concepts and query practice.</p></article>
+          <article class="skill-card reveal"><div class="skill-icon">Git</div><h3>Git & GitHub</h3><p>Version control and sharing project work.</p></article>
+          <article class="skill-card reveal"><div class="skill-icon">☁</div><h3>Cloud & AI</h3><p>Exploring AWS basics, deployment, and AI-powered tools.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">Selected work</div><h2>Ideas turned into <span class="gradient-text">projects.</span></h2><p class="section-desc">A few projects from my learning journey. Replace the repository links below with your actual GitHub project URLs.</p></div>
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-top"><div class="project-symbol">◎</div><span class="project-type">AI / Security</span></div>
+            <h3>ScanShield AI</h3><p>A project exploring suspicious URL analysis and scam detection with an AI-assisted workflow.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">ML</span><span class="chip">URL Analysis</span></div>
+            <div class="project-links"><a href="https://github.com/ajaydev-6666" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-top"><div class="project-symbol">▦</div><span class="project-type">Web App</span></div>
+            <h3>CampusConnect</h3><p>A smart college notice and complaint portal concept to make campus communication more organized.</p>
+            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+            <div class="project-links"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-top"><div class="project-symbol">✎</div><span class="project-type">Productivity</span></div>
+            <h3>Study Buddy</h3><p>A simple study-planner concept for organizing tasks, setting goals, and building consistent habits.</p>
+            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+            <div class="project-links"><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">The roadmap</div><h2>Learning in <span class="gradient-text">progress.</span></h2><p class="section-desc">The next steps I’m taking to turn knowledge into practical engineering skills.</p></div>
+        <div class="journey">
+          <article class="glass reveal"><h3>Education</h3><div class="journey-item"><span class="journey-mark"></span><div><h3>B.Tech — Computer Science & Engineering</h3><p>Accurate Institute of Management and Technology · Greater Noida, Uttar Pradesh</p></div></div></article>
+          <article class="glass reveal"><h3>Current learning goals</h3><div class="journey-item"><span class="journey-mark"></span><div><h3>DSA & problem-solving</h3><p>Practice core data structures, algorithms, and coding questions.</p></div></div><div class="journey-item"><span class="journey-mark"></span><div><h3>Java full-stack development</h3><p>Build with Spring Boot, REST APIs, MySQL, and frontend integration.</p></div></div><div class="journey-item"><span class="journey-mark"></span><div><h3>Cloud fundamentals</h3><p>Learn deployment concepts and AWS essentials.</p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="kicker">Have an idea?</div>
+          <h2>Let’s build something <span class="gradient-text">useful.</span></h2>
+          <p>I’m open to connecting with developers, collaborating on student projects, and learning about opportunities.</p>
+          <div class="contact-links">
+           
+<a class="btn btn-primary" href="mailto:rs5314627@gmail.com">✉ Email me</a>
+
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ajay-sharma-33957a289/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <button class="btn btn-secondary" id="rs5314627@gmail.com">Copy email</button>
+          </div>
+          <p id="copyStatus" aria-live="polite" style="min-height:1.5em;margin-bottom:0;"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Ajay Sharma. Made with curiosity ✦</span><a class="back-top" href="#home">Back to top ↑</a></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const email = 'your.email@example.com';
+    document.getElementById('copyEmail').addEventListener('click', async () => {
+      const status = document.getElementById('copyStatus');
+      try {
+        await navigator.clipboard.writeText(email);
+        status.textContent = 'Email copied to clipboard.';
+      } catch {
+        status.textContent = 'Replace the placeholder email in the HTML with your real email.';
+      }
+    });
+  </script>
+</body>
+</html>
